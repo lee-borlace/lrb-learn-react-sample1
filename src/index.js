@@ -2,9 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
+import Clock from './Clock';
+
+// This code comes from https://facebook.github.io/react/docs/installation.html
 
 // Update this depending on the code you want to test.
-startUp6();
+startUp7();
 
 function startUp1() {
   ReactDOM.render(
@@ -133,8 +136,8 @@ function startUp6() {
       avatarUrl: 'http://placekitten.com/g/64/64'
     }
   };
-  
-  
+
+
   ReactDOM.render(
     <Comment
       date={comment.date}
@@ -145,7 +148,14 @@ function startUp6() {
 
 }
 
+
+// This method uses a custom component defined in a class which has internal state.
 function startUp7() {
+  ReactDOM.render(
+    <Clock />,
+    document.getElementById('root')
+  );
+
 }
 
 function startUp8() {
