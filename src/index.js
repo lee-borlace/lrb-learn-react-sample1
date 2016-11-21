@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
 import Clock from './Clock';
+import Toggle from './Toggle';
 
 // This code comes from https://facebook.github.io/react/docs/installation.html
 
 // Update this depending on the code you want to test.
-startUp7();
+startUp8();
 
 function startUp1() {
   ReactDOM.render(
@@ -158,7 +159,12 @@ function startUp7() {
 
 }
 
+// This method uses handlers in its component.
 function startUp8() {
+  ReactDOM.render(
+    <Toggle />,
+    document.getElementById('root')
+  );
 }
 
 function startUp9() {

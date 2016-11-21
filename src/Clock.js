@@ -29,8 +29,9 @@ class Clock extends React.Component {
 
     tick() {
         // Override the state. Setting the state is what tells React to re-render the component. Always use setState() - don't set state explicitly outside of the constructor.
-        // setState() also has another override which takes previous state and props as params. This is because they can be updated asynchronously, so the state
-        // and props you previously had might not align.
+        // setState() also has another override which takes previous state and props as params. This is because they can be updated asynchronously, with several updates batched
+        // together, so the state and props you previously had might not align.
+        // You can independently update the individual components of state (sub-properties) via setState() - it doesn't have to be the complete state in one go.
         this.setState({
             date: new Date()
         });
