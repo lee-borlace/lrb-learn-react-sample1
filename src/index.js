@@ -4,11 +4,13 @@ import App from './App';
 import './index.css';
 import Clock from './Clock';
 import Toggle from './Toggle';
+import LoginControl from './LoginControl';
+import Page from './Page';
 
 // This code comes from https://facebook.github.io/react/docs/installation.html
 
 // Update this depending on the code you want to test.
-startUp8();
+startUp12();
 
 function startUp1() {
   ReactDOM.render(
@@ -167,17 +169,92 @@ function startUp8() {
   );
 }
 
+// Conditional rendering.
 function startUp9() {
+
+  function UserGreeting(props) {
+    return <h1>Welcome back!</h1>;
+  }
+
+  function GuestGreeting(props) {
+    return <h1>Please sign up.</h1>;
+  }
+
+  function Greeting(props) {
+    const isLoggedIn = props.isLoggedIn;
+    if (isLoggedIn) {
+      return <UserGreeting />;
+    }
+    return <GuestGreeting />;
+  }
+  ReactDOM.render(
+    // Try changing to isLoggedIn={true}:
+    <Greeting isLoggedIn={true} />,
+    document.getElementById('root')
+  );
+
 }
 
+// This component uses a variable to contain a component.
 function startUp10() {
+  ReactDOM.render(
+    <LoginControl />,
+    document.getElementById('root')
+  );
 }
 
+// Use of && to render conditionally.
 function startUp11() {
+
+  function Mailbox(props) {
+
+    const unreadMessages = props.unreadMessages;
+
+    return (
+      <div>
+        <h1>Hello!</h1>
+        {unreadMessages.length > 0 &&
+          <h2>
+            You have {unreadMessages.length}unread messages.
+        </h2>
+        }
+      </div>
+    );
+  }
+
+  const messages = ['React', 'Re: React', 'Re:Re: React'];
+  //const messages = [];
+
+  ReactDOM.render(
+    <Mailbox unreadMessages={messages} />,
+    document.getElementById('root')
+  );
+
 }
 
+// This component returns null when rendering a sub-component to force that component to not render anything.
 function startUp12() {
+  ReactDOM.render(
+    <Page />,
+    document.getElementById('root')
+  );
+
 }
 
 function startUp13() {
+}
+
+function startUp14() {
+}
+
+function startUp15() {
+}
+
+function startUp16() {
+}
+
+function startUp17() {
+}
+
+function startUp18() {
 }
