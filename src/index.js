@@ -6,11 +6,13 @@ import Clock from './Clock';
 import Toggle from './Toggle';
 import LoginControl from './LoginControl';
 import Page from './Page';
+import NameForm from './NameForm';
+import FlavorForm from './FlavorForm';
 
 // This code comes from https://facebook.github.io/react/docs/installation.html
 
 // Update this depending on the code you want to test.
-startUp12();
+startUp16();
 
 function startUp1() {
   ReactDOM.render(
@@ -241,16 +243,60 @@ function startUp12() {
 
 }
 
+
+// Map array of primitives to array of elements.
 function startUp13() {
+  const numbers = [1, 2, 3, 4, 5];
+
+  const listItems = numbers.map((number) =>
+    <li>{number}</li>
+  );
+
+  ReactDOM.render(
+    <ul>{listItems}</ul>,
+    document.getElementById('root')
+  );
 }
 
+// Component which takes array as parameter, maps it to elements. Key is specified for each rendered item. Keys are not required but make rendering more efficient as modified
+// items can more easily be identified. Keys should be set at the point of creating array of elements. I.e. when calling map() to create elements, create key there and then.
+// The map() call can be done directly in JSX inside curly braces.
 function startUp14() {
+  function NumberList(props) {
+    const numbers = props.numbers;
+    const listItems = numbers.map((number) =>
+      <li key={number.toString()}>
+        {number}
+      </li>
+    );
+    return (
+      <ul>{listItems}</ul>
+    );
+  }
+
+  const numbers = [6, 7, 8, 9, 10];
+  ReactDOM.render(
+    <NumberList numbers={numbers} />,
+    document.getElementById('root')
+  );
+
 }
 
+// Controlled component. Rather than letting the form control the textboxes inside it, we have let the value of the textbox in the form be controlled by React. This
+// ensures React remains the source of truth.
 function startUp15() {
+  ReactDOM.render(
+    <NameForm />,
+    document.getElementById('root')
+  );
 }
 
+// Value of select element is used to indicate the currently selected item.
 function startUp16() {
+  ReactDOM.render(
+    <FlavorForm />,
+    document.getElementById('root')
+  );
 }
 
 function startUp17() {
