@@ -8,11 +8,14 @@ import LoginControl from './LoginControl';
 import Page from './Page';
 import NameForm from './NameForm';
 import FlavorForm from './FlavorForm';
+import Calculator1 from './Calculator1';
+import Calculator2 from './Calculator2';
+import Calculator3 from './Calculator3';
 
 // This code comes from https://facebook.github.io/react/docs/installation.html
 
 // Update this depending on the code you want to test.
-startUp16();
+startUp19();
 
 function startUp1() {
   ReactDOM.render(
@@ -299,8 +302,46 @@ function startUp16() {
   );
 }
 
+// First go at boiling temperature calculator with one simple input.
 function startUp17() {
+  ReactDOM.render(
+    <Calculator1 />,
+    document.getElementById('root')
+  );
 }
 
+// Second go with celcius and fahrenheit temperatures which aren't kept in sync. Also because the 2 individual temperature input components inside the
+// calculator component don't expose their state externally, there's no way for the parent component to make a decision based on them both.
 function startUp18() {
+  ReactDOM.render(
+    <Calculator2 />,
+    document.getElementById('root')
+  );
+}
+
+// If several components need access to the same state, it is a sign that the state should be lifted up to their closest common ancestor instead.
+// 
+function startUp19() {
+  ReactDOM.render(
+    <Calculator3 />,
+    document.getElementById('root')
+  );
+}
+
+function startUp20() {
+}
+
+function startUp21() {
+}
+
+function startUp22() {
+}
+
+function startUp23() {
+}
+
+function startUp24() {
+}
+
+function startUp25() {
 }
